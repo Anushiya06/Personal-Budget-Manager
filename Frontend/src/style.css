@@ -1,0 +1,95 @@
+/* General page layout */
+#root {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row; /* Keep the layout horizontal */
+  }
+  
+  .container {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Sidebar layout */
+  .navbar {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column; /* Align items vertically in the navbar */
+    width: 200px; /* Fixed width for the sidebar */
+    height: 100vh; /* Full height of the viewport */
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .navbar a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Main content */
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  /* Form styling */
+  .page-section {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .button {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+  }
+  
+  .layout-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; 
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      width: 100%;
+      height: auto;
+      flex-direction: row; 
+      justify-content: space-around;
+    }
+  
+    .layout-container {
+      flex-direction: column; 
+    }
+  }
+  
