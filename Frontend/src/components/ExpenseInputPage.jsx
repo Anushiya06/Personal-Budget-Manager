@@ -13,7 +13,7 @@ const ExpenseInputPage = ({ addExpense }) => {
     if (!expenseName || !expenseAmount) return;
 
     try {
-      const response = await axios.post("http://localhost:3004/addexpense", {
+      const response = await axios.post("https://personal-budget-manager-mkml.onrender.com/addexpense", {
         name: expenseName,
         amount: Number(expenseAmount),
       });

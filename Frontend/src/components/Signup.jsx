@@ -15,7 +15,7 @@ const Signup = () => {
     event.preventDefault();
     console.log("Event Triggered");
     try {
-      const req = await axios.post("http://localhost:3004/signup", {
+      const req = await axios.post("https://personal-budget-manager-mkml.onrender.com/signup", {
         firstName: firstname,
         lastName: lastname,
         userName: username,

@@ -11,10 +11,10 @@ const SummaryPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const budgetResponse = await axios.get("http://localhost:3004/budget");
+        const budgetResponse = await axios.get("https://personal-budget-manager-mkml.onrender.com/budget");
         setBudget(budgetResponse.data.budget);
 
-        const expensesResponse = await axios.get("http://localhost:3004/expenses");
+        const expensesResponse = await axios.get("https://personal-budget-manager-mkml.onrender.com/expenses");
         setExpenses(expensesResponse.data);
       } catch (error) {
         setMessage("Error fetching data");
