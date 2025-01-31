@@ -1,7 +1,6 @@
-const mongoose = require("mongoose");
-
-const BudgetSchema = new mongoose.Schema({
-  budget: Number
+const mdb = require("mongoose");
+const budgetSchema = mdb.Schema({
+  budget: Number,
 });
-
-module.exports = mongoose.model("Budget", BudgetSchema);
+const Budget = mdb.model("Budget", budgetSchema);
+module.exports = Budget;

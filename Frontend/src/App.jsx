@@ -8,8 +8,8 @@ import SummaryPage from "./components/SummaryPage";
 import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import "./style.css";
-
+import "./styles/navbar.css";
+import "./styles/style.css";
 function App() {
   const [budget, setBudget] = useState(0);
   const [expenses, setExpenses] = useState([]);

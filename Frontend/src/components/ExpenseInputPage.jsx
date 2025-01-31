@@ -1,18 +1,31 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import "../style.css";
+import axios from "axios";
+import "../styles/style.css";
 
 const ExpenseInputPage = ({ addExpense }) => {
   const [expenseName, setExpenseName] = useState("");
   const [expenseAmount, setExpenseAmount] = useState("");
-  const handleSubmit = (e) => {
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!expenseName || !expenseAmount) return;
-    addExpense({ name: expenseName, amount: Number(expenseAmount) });
+
+    try {
+      const response = await axios.post("http://localhost:3004/addexpense", {
+        name: expenseName,
+        amount: Number(expenseAmount),
+      });
+      setMessage(response.data.message);
+      addExpense({ name: expenseName, amount: Number(expenseAmount) });
+    } catch (error) {
+      setMessage(error.response.data.message || "Error adding expense");
+    }
     setExpenseName("");
     setExpenseAmount("");
-    
   };
+
   return (
     <div className="container">
       <h1>Add New Expense</h1>
@@ -31,6 +44,7 @@ const ExpenseInputPage = ({ addExpense }) => {
         />
         <button type="submit">Add Expense</button>
       </form>
+      {message && <p>{message}</p>}
     </div>
   );
 };

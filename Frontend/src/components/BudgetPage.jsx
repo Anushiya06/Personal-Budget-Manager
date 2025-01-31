@@ -1,12 +1,25 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import "../style.css";
+import axios from "axios";
+import "../styles/style.css";
 
 const BudgetPage = ({ budget, setBudget }) => {
   const [localBudget, setLocalBudget] = useState(budget);
-  const saveBudget = () => {
-    setBudget(localBudget);
+  const [message, setMessage] = useState("");
+
+  const saveBudget = async () => {
+    try {
+      const response = await axios.post("http://localhost:3004/addbudget", {
+        budget: localBudget
+      });
+      setMessage(response.data.message);
+      setBudget(localBudget);
+    } catch (error) { 
+      setMessage("Error saving budget");
+      console.error(error); 
+    }
   };
+
   return (
     <div className="container">
       <h1>Set Your Budget</h1>
@@ -16,6 +29,7 @@ const BudgetPage = ({ budget, setBudget }) => {
         onChange={(e) => setLocalBudget(Number(e.target.value))}
       />
       <button onClick={saveBudget}>Save Budget</button>
+      {message && <p>{message}</p>}
     </div>
   );
 };

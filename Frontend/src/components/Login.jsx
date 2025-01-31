@@ -9,7 +9,7 @@ const Login=()=>{
     const handleLogin= async (event)=>{
         event.preventDefault()
 console.log("Event Triggered")
-try{const req= await axios.post("http://localhost:3003/login",{
+try{const req= await axios.post("http://localhost:3004/login",{
     email:email,
     password:password
 }) 
